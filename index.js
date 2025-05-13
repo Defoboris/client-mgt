@@ -3,6 +3,7 @@ const express = require('express');
 
 const authRouter = require('./routes/authRouter');
 const projectRouter = require('./routes/projectRouter');
+const transactionRouter = require('./routes/transactionRouter');
 const catchAsync = require('./utils/catchAsync');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -15,6 +16,7 @@ app.use(express.json());
 // Routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/projects', projectRouter);
+app.use('/api/v1/transactions', transactionRouter);
 
 // Ropute don't match 
 app.use(catchAsync(async (req, res, next) => {
